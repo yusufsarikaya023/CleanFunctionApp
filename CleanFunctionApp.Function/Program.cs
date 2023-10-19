@@ -1,3 +1,4 @@
+using CleanFunctionApp.Application;
 using CleanFunctionApp.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +17,9 @@ var host = new HostBuilder()
             var connectionString = Configuration
                 .AppSettings
                 .GetConnectionString("DefaultConnection")!;
+
+            s.RegisterInfrastructure();
+            s.RegisterApplication();
             s.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
         })
         .Build();

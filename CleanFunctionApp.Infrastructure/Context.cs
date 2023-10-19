@@ -1,4 +1,4 @@
-using CleanFunctionApp.Domain.Aggregation.User;
+using CleanFunctionApp.Domain.Aggregation.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -14,11 +14,11 @@ public class Context : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        // if (!optionsBuilder.IsConfigured)
-        // {
-        //     string conn = Configuration.AppSettings.GetConnectionString("DefaultConnection")!;
-        //     optionsBuilder.UseSqlServer(conn);
-        // }
+        if (!optionsBuilder.IsConfigured)
+        {
+            string conn = Configuration.AppSettings.GetConnectionString("DefaultConnection")!;
+            optionsBuilder.UseSqlServer(conn);
+        }
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

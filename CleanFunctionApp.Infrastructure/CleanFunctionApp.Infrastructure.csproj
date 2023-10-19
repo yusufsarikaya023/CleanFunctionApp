@@ -22,4 +22,6 @@
       <ProjectReference Include="..\CleanFunctionApp.Domain\CleanFunctionApp.Domain.csproj" />
     </ItemGroup>
 
+
+
 </Project>

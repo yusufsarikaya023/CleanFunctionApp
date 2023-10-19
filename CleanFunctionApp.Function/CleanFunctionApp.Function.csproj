@@ -32,6 +32,7 @@
         <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\CleanFunctionApp.Application\CleanFunctionApp.Application.csproj" />
       <ProjectReference Include="..\CleanFunctionApp.Infrastructure\CleanFunctionApp.Infrastructure.csproj" />
     </ItemGroup>
 </Project>
