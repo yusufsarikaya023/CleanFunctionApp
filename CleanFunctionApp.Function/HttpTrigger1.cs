@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
-using AutoMapper;
 using CleanFunctionApp.Application.UseCases.Users;
 using CleanFunctionApp.Infrastructure;
 using MediatR;
