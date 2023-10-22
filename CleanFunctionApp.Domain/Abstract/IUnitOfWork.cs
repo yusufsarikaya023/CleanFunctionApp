@@ -5,5 +5,6 @@ namespace CleanFunctionApp.Domain.Abstract;
 public interface IUnitOfWork
 {
     ITransaction BeginTransaction();
+    Task CommitAsync(CancellationToken cancellationToken);
     IUserRepository UserRepository();
 }

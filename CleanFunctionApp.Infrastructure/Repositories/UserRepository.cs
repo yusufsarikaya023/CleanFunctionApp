@@ -12,4 +12,9 @@ public class UserRepository : Repository<User>, IUserRepository
     {
         return entity.ToArray();
     }
+    
+    public void Insert(User user)
+    {
+        entity.Add(user);
+    }
 }

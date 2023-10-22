@@ -1,5 +1,6 @@
 using System.Reflection;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanFunctionApp.Application;

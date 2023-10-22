@@ -13,7 +13,11 @@ public class UnitOfWork : IUnitOfWork
     }
     
     public ITransaction BeginTransaction() => new Transaction(context);
-    
+    public Task CommitAsync(CancellationToken cancellationToken)
+    {
+        return context.SaveChangesAsync(cancellationToken);
+    }
+
     private IUserRepository userRepository;
     public IUserRepository UserRepository() => userRepository = new UserRepository(context);
 }
