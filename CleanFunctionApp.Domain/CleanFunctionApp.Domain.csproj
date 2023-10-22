@@ -8,8 +8,5 @@
 
 
 
-    <ItemGroup>
-      <Folder Include="Aggregation\Common\" />
-    </ItemGroup>
 
 </Project>

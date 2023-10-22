@@ -23,13 +23,12 @@ public class InsertUserFunction
     public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
     {
         _logger.LogInformation("yusuf C# HTTP trigger function processed a request.");
-        
-        var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Headers.Add("Content-Type", "application/json; charset=utf-8");
-        
         var dto = await req.ReadFromJsonAsync<UserDto>();
-        
+        throw new Exception("TEST");
         await mediator.Send(new InsertUserCommand(dto!));
+        // throw new Exception("test");
+        var response = req.CreateResponse(HttpStatusCode.InternalServerError);
+        response.Headers.Add("Content-Type", "application/json; charset=utf-8");
         return response;
     }
 }
