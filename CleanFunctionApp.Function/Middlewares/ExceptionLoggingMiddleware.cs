@@ -24,8 +24,6 @@ public class ExceptionLoggingMiddleware : IFunctionsWorkerMiddleware
                     tracer = tracer!.InnerException;
             }
             
-            trace = trace.Where(x => !x.Contains("One or more errors occurred")).ToList();
-
             // return this response with status code 500
             var httpReqData = await context.GetHttpRequestDataAsync();
             if (httpReqData != null)

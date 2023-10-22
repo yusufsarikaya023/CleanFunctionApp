@@ -24,7 +24,6 @@ public class InsertUserFunction
     {
         _logger.LogInformation("yusuf C# HTTP trigger function processed a request.");
         var dto = await req.ReadFromJsonAsync<UserDto>();
-        throw new Exception("TEST");
         await mediator.Send(new InsertUserCommand(dto!));
         // throw new Exception("test");
         var response = req.CreateResponse(HttpStatusCode.InternalServerError);
