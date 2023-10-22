@@ -10,6 +10,10 @@ public class Context : DbContext
     public Context(DbContextOptions<Context> options) : base(options)
     {
     }
+    public Context(DbContextOptionsBuilder<Context> optionsBuilder) : base(optionsBuilder.Options)
+    {
+    }
+    
     public DbSet<User>? Users { get; set; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

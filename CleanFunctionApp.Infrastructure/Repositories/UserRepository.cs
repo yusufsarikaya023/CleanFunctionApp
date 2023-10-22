@@ -17,4 +17,9 @@ public class UserRepository : Repository<User>, IUserRepository
     {
         entity.Add(user);
     }
+
+    public User Get(int id)
+    {
+        return entity.Find(id)!;
+    }
 }
