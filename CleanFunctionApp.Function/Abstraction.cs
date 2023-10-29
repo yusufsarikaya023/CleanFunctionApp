@@ -2,17 +2,18 @@ using System.Net;
 using MediatR;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace CleanFunctionApp.Function;
 
-public abstract class Abstraction
+public abstract class Abstraction<T>
 {
     private readonly ILogger logger;
     private readonly IMediator mediator;
 
     public Abstraction(ILoggerFactory loggerFactory, IMediator mediator)
     {
-        logger = loggerFactory.CreateLogger<HttpTrigger1>();
+        logger = loggerFactory.CreateLogger<T>();
         this.mediator = mediator;
     }
     
@@ -21,6 +22,15 @@ public abstract class Abstraction
         var response = req.CreateResponse(HttpStatusCode.OK);
         response.Headers.Add("Content-Type", "application/json; charset=utf-8");
         await mediator.Send(request);
+        return response;
+    }
+    
+    protected async Task<HttpResponseData> PostResponse<TResponse>(HttpRequestData req, IRequest<TResponse> request)
+    {
+        var response = req.CreateResponse(HttpStatusCode.OK);
+        response.Headers.Add("Content-Type", "application/json; charset=utf-8");
+        TResponse result =  await mediator.Send(request);
+        await  response.WriteStringAsync(JsonConvert.SerializeObject(result));
         return response;
     }
 }

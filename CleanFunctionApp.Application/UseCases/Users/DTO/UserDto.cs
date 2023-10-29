@@ -1,8 +1,8 @@
 
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 using CleanFunctionApp.Application.Abstract;
 using FluentValidation;
+using Newtonsoft.Json;
 
 namespace CleanFunctionApp.Application.UseCases.Users.DTO;
 

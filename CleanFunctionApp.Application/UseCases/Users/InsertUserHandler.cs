@@ -8,7 +8,7 @@ namespace CleanFunctionApp.Application.UseCases.Users;
 
 public record InsertUserCommand(UserDto Model): IRequest;
 
-public class InsertUserHandler: IRequestHandler<InsertUserCommand>
+public class InsertUserHandler: Handler, IRequestHandler<InsertUserCommand>
 {
     private readonly IUnitOfWork unitOfWork;
     private readonly IMapper mapper;
@@ -18,7 +18,6 @@ public class InsertUserHandler: IRequestHandler<InsertUserCommand>
         this.unitOfWork = unitOfWork;
         this.mapper = mapper;
     }
-
 
     public async Task Handle(InsertUserCommand request, CancellationToken cancellationToken)
     {
