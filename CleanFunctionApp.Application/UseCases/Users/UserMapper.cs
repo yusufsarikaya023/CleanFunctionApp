@@ -1,6 +1,6 @@
 using AutoMapper;
+using CleanFunctionApp.Application.UseCases.Users.DTO;
 using CleanFunctionApp.Domain.Aggregation.Users;
-using CleanFunctionApp.Domain.Aggregation.Users.DTO;
 
 namespace CleanFunctionApp.Application.UseCases.Users;
 

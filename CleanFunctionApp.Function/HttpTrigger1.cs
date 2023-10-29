@@ -11,21 +11,19 @@ namespace CleanFunctionApp.Function;
 
 public class HttpTrigger1
 {
-    private readonly ILogger _logger;
-    private readonly Context context;
+    private readonly ILogger logger;
     private readonly IMediator mediator;
 
-    public HttpTrigger1(ILoggerFactory loggerFactory, Context context, IMediator mediator)
+    public HttpTrigger1(ILoggerFactory loggerFactory, IMediator mediator)
     {
-        this.context = context;
-        _logger = loggerFactory.CreateLogger<HttpTrigger1>();
+        logger = loggerFactory.CreateLogger<HttpTrigger1>();
         this.mediator = mediator;
     }
     
     [Function("HttpTrigger1")]
     public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
     {
-        _logger.LogInformation("yusuf C# HTTP trigger function processed a request.");
+        logger.LogInformation("yusuf C# HTTP trigger function processed a request.");
         
         var response = req.CreateResponse(HttpStatusCode.OK);
         response.Headers.Add("Content-Type", "application/json; charset=utf-8");

@@ -1,11 +1,11 @@
-using CleanFunctionApp.Domain.Aggregation.Users.DTO;
+using CleanFunctionApp.Application.UseCases.Users.DTO;
 using FluentValidation;
 
 namespace CleanFunctionApp.Application.UseCases.Users;
 
-public class UserValidation : AbstractValidator<UserDto>
+public class UserDtoValidation : AbstractValidator<UserDto>
 {
-    public UserValidation()
+    public UserDtoValidation()
     {
         RuleFor(x=>x.Email).NotEmpty().EmailAddress();
     }

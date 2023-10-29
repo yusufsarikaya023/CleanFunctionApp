@@ -1,7 +1,7 @@
 using AutoMapper;
 using CleanFunctionApp.Application.UseCases.Users;
+using CleanFunctionApp.Application.UseCases.Users.DTO;
 using CleanFunctionApp.Domain.Abstract;
-using CleanFunctionApp.Domain.Aggregation.Users.DTO;
 using Moq;
 
 namespace CleanFunctionApp.Test.EntegrationTest.User;

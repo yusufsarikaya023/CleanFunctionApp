@@ -1,8 +1,7 @@
 using AutoMapper;
+using CleanFunctionApp.Application.UseCases.Users.DTO;
 
 namespace CleanFunctionApp.Test.EntegrationTest;
-using CleanFunctionApp.Domain.Aggregation.Users;
-using CleanFunctionApp.Domain.Aggregation.Users.DTO;
 
 public class HandlerFixture
 {
