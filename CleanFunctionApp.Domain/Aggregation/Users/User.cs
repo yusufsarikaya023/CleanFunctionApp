@@ -1,4 +1,4 @@
-using CleanFunctionApp.Domain.Abstract;
+using CleanFunctionApp.Domain.Aggregation.Common;
 
 namespace CleanFunctionApp.Domain.Aggregation.Users;
 

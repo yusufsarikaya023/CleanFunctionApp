@@ -1,12 +1,13 @@
 
 using System.ComponentModel.DataAnnotations;
 using CleanFunctionApp.Application.Abstract;
+using CleanFunctionApp.Application.Common;
 using FluentValidation;
 using Newtonsoft.Json;
 
 namespace CleanFunctionApp.Application.UseCases.Users.DTO;
 
-public class UserDto: IValidateable<UserDto>
+public class UserDto: EntityDto, IValidateable<UserDto>
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

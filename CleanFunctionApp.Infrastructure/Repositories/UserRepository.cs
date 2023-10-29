@@ -1,7 +1,8 @@
+using CleanFunctionApp.Domain.Aggregation.Common;
 using CleanFunctionApp.Domain.Aggregation.Users;
 
 namespace CleanFunctionApp.Infrastructure.Repositories;
-
+using Common;
 public class UserRepository : Repository<User>, IUserRepository
 {
     public UserRepository(Context context) : base(context)
@@ -12,7 +13,12 @@ public class UserRepository : Repository<User>, IUserRepository
     {
         return entity.ToArray();
     }
-    
+
+    public User[] Search(Specification<User>? specification, Pagination? pagination)
+    {
+        return entity.Filter(specification).Paginate(pagination).ToArray();
+    }
+
     public void Insert(User user)
     {
         entity.Add(user);

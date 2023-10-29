@@ -1,4 +1,4 @@
-namespace CleanFunctionApp.Domain.Abstract;
+namespace CleanFunctionApp.Domain.Aggregation.Common;
 
 public abstract class Entity
 {

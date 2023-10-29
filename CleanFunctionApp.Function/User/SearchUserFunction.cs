@@ -22,6 +22,6 @@ public class SearchUserFunction: Abstraction<SearchUserFunction>
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), Summary = "Job list.", Description = "List of all the jobs.")]
     public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req) =>
         await PostResponse(
-            req,new SearchUserRequest(req.Convert<SearchUserDto>())
+            req,new SearchUser(req.Convert<SearchUserDto>())
         );
 }

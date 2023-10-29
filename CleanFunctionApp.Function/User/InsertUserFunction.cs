@@ -21,7 +21,7 @@ public class InsertUserFunction: Abstraction<InsertUserFunction>
     [OpenApiOperation(operationId: "selectAllJpbs", tags: new[] { "User" }, Summary = "Insert New User.", Description = "Operation Insert new user to database.", Visibility = OpenApiVisibilityType.Important)]
     [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(UserDto), Required = true, Description = "Add new user to database.")]
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), Summary = "Job list.", Description = "List of all the jobs.")]
-    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req) =>
+    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req) =>
         await PostResponse(
             req,new InsertUserCommand(req.Convert<UserDto>())
             );

@@ -1,7 +1,6 @@
-using CleanFunctionApp.Application.UseCases.Users.DTO;
 using FluentValidation;
 
-namespace CleanFunctionApp.Application.UseCases.Users;
+namespace CleanFunctionApp.Application.UseCases.Users.DTO;
 
 public class UserDtoValidation : AbstractValidator<UserDto>
 {
