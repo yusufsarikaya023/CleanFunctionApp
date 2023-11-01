@@ -4,6 +4,7 @@ using CleanFunctionApp.Domain.Abstract;
 using CleanFunctionApp.Domain.Aggregation.Users;
 using MediatR;
 
+
 namespace CleanFunctionApp.Application.UseCases.Users;
 
 public record InsertUserCommand(UserDto Model): IRequest;
