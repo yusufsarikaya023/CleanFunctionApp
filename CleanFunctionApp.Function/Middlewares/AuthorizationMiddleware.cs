@@ -13,6 +13,13 @@ public class AuthorizationMiddleware : IFunctionsWorkerMiddleware
     }
     public async Task Invoke(FunctionContext context, FunctionExecutionDelegate next)
     {
+        // if that is swagger request, skip authorization
+        if (context.FunctionDefinition.Name == "RenderSwaggerUI" || context.FunctionDefinition.Name == "RenderSwaggerDocument")
+        {
+            await next(context);
+            return;
+        }
+        
         // Read request headers
         var headers = await context.GetHttpRequestDataAsync();
         var bearer = headers.Headers
