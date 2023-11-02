@@ -3,6 +3,6 @@ namespace CleanFunctionApp.Function;
 public interface IAuthorizationService
 {
     
-    void CheckAuthorization(string bearerToken);
+    bool CheckAuthorization(string bearerToken, string[]? roles = null);
     string GetSpecificClaim(string claimType);
 }

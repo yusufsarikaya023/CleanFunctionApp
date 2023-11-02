@@ -28,4 +28,9 @@ public class UserRepository : Repository<User>, IUserRepository
     {
         return entity.Find(id)!;
     }
+
+    public User GetByEmail(string email)
+    {
+        return entity.FirstOrDefault(x => x.Email == email)!;
+    }
 }

@@ -30,4 +30,5 @@
       <ProjectReference Include="..\CleanFunctionApp.Infrastructure\CleanFunctionApp.Infrastructure.csproj" />
     </ItemGroup>
 
+
 </Project>

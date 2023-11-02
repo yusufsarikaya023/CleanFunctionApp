@@ -7,6 +7,6 @@ public static class Injector
 {
     public static void RegisterInfrastructure(this IServiceCollection services)
     {
-        services.AddSingleton<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IUnitOfWork,UnitOfWork>();
     }
 }

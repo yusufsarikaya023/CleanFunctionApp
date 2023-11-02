@@ -6,6 +6,8 @@ public class ClaimBuilder
 {
     private ICollection<Claim> claims = new HashSet<Claim>();
     
+    public static ClaimBuilder Create() => new();
+    
     public ClaimBuilder SetId(string id)
     {
         claims.Add(new Claim(ClaimTypes.NameIdentifier, id));

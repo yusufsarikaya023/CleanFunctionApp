@@ -38,7 +38,7 @@ var host = new HostBuilder()
             s.RegisterInfrastructure();
             s.RegisterApplication();
             s.AddScoped<IAuthorizationService, AuthorizationService>();
-            s.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
+            s.AddDbContext<Context>(options => options.UseSqlServer(connectionString), ServiceLifetime.Scoped);
             s.AddSingleton<IOpenApiConfigurationOptions>(_ =>
             {
                 OpenApiConfigurationOptions options = new OpenApiConfigurationOptions

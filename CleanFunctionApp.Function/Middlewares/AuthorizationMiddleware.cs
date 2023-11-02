@@ -17,18 +17,19 @@ public class AuthorizationMiddleware : IFunctionsWorkerMiddleware
         var headers = await context.GetHttpRequestDataAsync();
         var bearer = headers.Headers
             .FirstOrDefault(x => x.Key == "Authorization").Value;
-        if (bearer is not null)
-        {
-            service.CheckAuthorization(bearer.FirstOrDefault());
-        }
         
         var targetMethod = GetTargetFunctionMethod(context);
         var attributes = targetMethod.GetCustomAttributes<AuthorizeAttribute>(true);
 
-        // If there are no AuthorizeAttributes, then we don't need to do anything
-        if (!attributes.Any()) await next(context);
+        if (attributes.Any() && bearer is null)
+        {
+            throw new UnauthorizedAccessException("Unauthorized");
+        }
 
-        await next(context);
+        if (bearer is not null && service.CheckAuthorization(bearer.FirstOrDefault()!, attributes.FirstOrDefault()?.Roles))
+             await next(context);
+        else
+            throw new UnauthorizedAccessException("Unauthorized");
     }
 
     public static MethodInfo GetTargetFunctionMethod(FunctionContext context)

@@ -26,4 +26,29 @@ public class User : Entity
                 _ => value.ToLower().Trim()
             };
     }
+    
+    private string password;
+    public string Password
+    {
+        get => password;
+        set =>
+            password = value switch
+            {
+                var _ when string.IsNullOrEmpty(value) => throw new ArgumentNullException(nameof(Password)),
+                var _ when value.Length < 8 => throw new ArgumentException("Invalid_Password"),
+                _ => value
+            };
+    }
+    
+    private string role;
+    public string Role
+    {
+        get => role;
+        set =>
+            role = value switch
+            {
+                var _ when string.IsNullOrEmpty(value) => throw new ArgumentNullException(nameof(Role)),
+                _ => value.ToLower().Trim()
+            };
+    }
 }

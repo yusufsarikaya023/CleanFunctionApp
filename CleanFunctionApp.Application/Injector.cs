@@ -1,4 +1,6 @@
 using System.Reflection;
+using CleanFunctionApp.Application.Services;
+using CleanFunctionApp.Domain.Abstract;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,5 +15,6 @@ public static class Injector
         services.AddValidatorsFromAssembly(typeof(Assembly).Assembly);
         services.AddMediatR(cfg => cfg.
             RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+        services.AddScoped<IPasswordHashService, PasswordHashService>();
     }
 }
