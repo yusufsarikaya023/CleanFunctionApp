@@ -1,19 +1,16 @@
 using System.Net;
 using MediatR;
 using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace CleanFunctionApp.Function;
 
-public abstract class Abstraction<T>
+public abstract class Abstraction
 {
-    private readonly ILogger logger;
     private readonly IMediator mediator;
 
-    public Abstraction(ILoggerFactory loggerFactory, IMediator mediator)
+    public Abstraction(IMediator mediator)
     {
-        logger = loggerFactory.CreateLogger<T>();
         this.mediator = mediator;
     }
     

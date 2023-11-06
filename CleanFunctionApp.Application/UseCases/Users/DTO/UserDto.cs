@@ -1,5 +1,3 @@
-
-using System.ComponentModel.DataAnnotations;
 using CleanFunctionApp.Application.Abstract;
 using CleanFunctionApp.Application.Common;
 using FluentValidation;

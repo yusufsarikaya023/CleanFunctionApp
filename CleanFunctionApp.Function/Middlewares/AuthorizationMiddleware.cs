@@ -41,10 +41,7 @@ public class AuthorizationMiddleware : IFunctionsWorkerMiddleware
 
     public static MethodInfo GetTargetFunctionMethod(FunctionContext context)
     {
-        // This contains the fully qualified name of the method
-        // E.g. IsolatedFunctionAuth.TestFunctions.ScopesAndAppRoles
         var entryPoint = context.FunctionDefinition.EntryPoint;
-
         var assemblyPath = context.FunctionDefinition.PathToAssembly;
         var assembly = Assembly.LoadFrom(assemblyPath);
         var typeName = entryPoint.Substring(0, entryPoint.LastIndexOf('.'));

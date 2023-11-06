@@ -21,8 +21,8 @@ public class LoginUserHandler : Handler, IRequestHandler<LoginUser, string>
     {
         var userRepository = unitOfWork.UserRepository();
         var user = userRepository.GetByEmail(request.Email);
-        if (user == null) throw new ArgumentException("Invalid_Email");
-        if (user.Password != request.Password) throw new ArgumentException("Invalid_Password");
+        if (user == null) throw new Exception("Invalid_Email");
+        if (user.Password != request.Password) throw new Exception("Invalid_Password");
 
         var tokens = ClaimBuilder.Create()
             .SetEmail(user.Email)

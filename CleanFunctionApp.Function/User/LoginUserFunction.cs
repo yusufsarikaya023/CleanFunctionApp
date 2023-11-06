@@ -1,25 +1,17 @@
 using System.Net;
-using System.Text;
-using CleanFunctionApp.Application.UseCases.Users.DTO;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using CleanFunctionApp.Application.UseCases.Users;
-using CleanFunctionApp.Domain.Abstract;
-
 
 namespace CleanFunctionApp.Function.User;
 
-public class LoginUserFunction: Abstraction<InsertUserFunction>
+public class LoginUserFunction: Abstraction
 {
 
-    public LoginUserFunction(ILoggerFactory loggerFactory, IMediator mediator):base(loggerFactory, mediator)
+    public LoginUserFunction(IMediator mediator):base(mediator)
     {
     }
 
