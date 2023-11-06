@@ -29,9 +29,7 @@ public class LoginUserHandler : Handler, IRequestHandler<LoginUser, string>
             .SetRole(user.Role)
             .SetId(user.Id.ToString())
             .Build();
-
         var token = jwtService.BuildToken(tokens);
-
         return Success(token);
     }
 }
